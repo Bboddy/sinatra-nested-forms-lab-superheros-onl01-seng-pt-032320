@@ -8,6 +8,10 @@ class App < Sinatra::Base
     erb :create_heros
   end
   
-  get '/'
+  post '/teams' do
+    @team = Pirate.new(params[:pirate])
+    @ship1 = Ship.new(params[:pirate][:ships][0])
+    @ship2 = Ship.new(params[:pirate][:ships][1])
+  end
   
 end
